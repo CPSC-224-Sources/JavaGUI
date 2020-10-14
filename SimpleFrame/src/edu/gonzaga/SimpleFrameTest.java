@@ -11,6 +11,7 @@ public class SimpleFrameTest
         {
             SimpleFrame frame = new SimpleFrame();
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setTitle("This is Crandall's Title");
             frame.setVisible(true);
         });
     }
