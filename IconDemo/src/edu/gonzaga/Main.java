@@ -13,8 +13,11 @@ public class Main {
 
         JButton b=new JButton("Click Here");
 
-        ImageIcon myIcon = new ImageIcon("./YetiIcon.png");
-        f.setIconImage(myIcon.getImage());
+        ImageIcon yetiIcon = new ImageIcon("./YetiIcon.png");
+        f.setIconImage(yetiIcon.getImage());
+
+        //JLabel yetiLabel = new JLabel(yetiIcon);      // Make yeti chase you!
+        // Need to hook to mouseEvent tracking. :-)
 
         Timer yetiTimer = new Timer(5000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -30,7 +33,7 @@ public class Main {
                 // NOTE: e contains information about *what* action was performed
                 tf.setText("It's a 5 second yeti! RUN!");
                 b.setText(("Why did you do that!?!"));
-                f.setIconImage(myIcon.getImage());
+                f.setIconImage(yetiIcon.getImage());
                 yetiTimer.start();                          // Start the Yeti timer
             }
         });
