@@ -1,7 +1,11 @@
 package edu.gonzaga;
 
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import javax.swing.*;
+import javax.imageio.*;
 
 public class Main {
 
@@ -15,6 +19,18 @@ public class Main {
 
         ImageIcon yetiIcon = new ImageIcon("./YetiIcon.png");
         f.setIconImage(yetiIcon.getImage());
+
+        // The new bit
+        BufferedImage yetiPicture;
+        JLabel picLabel;
+        try {
+            yetiPicture = ImageIO.read(new File("./YetiIcon.png"));
+            picLabel = new JLabel(new ImageIcon(yetiPicture));
+            picLabel.setBounds(50, 130, 100, 150);
+            f.add(picLabel);                    // Add picture
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
 
         //JLabel yetiLabel = new JLabel(yetiIcon);      // Make yeti chase you!
         // Need to hook to mouseEvent tracking. :-)
