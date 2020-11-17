@@ -6,6 +6,7 @@ import java.beans.PropertyChangeListener;
 
 public class Die {
     int value = 0;
+    boolean locked = false;
     private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
@@ -16,10 +17,15 @@ public class Die {
         this.pcs.removePropertyChangeListener(listener);
     }
 
+    public void lock() { locked = true; }
+    public void unlock() { locked = false; }
+
     public void roll() {
-        Random rand = new Random(); //instance of random class
-        int upperbound = 6;
-        this.setValue( rand.nextInt(upperbound) + 1 );
+        if(!locked) {
+            Random rand = new Random(); //instance of random class
+            int upperbound = 6;
+            this.setValue(rand.nextInt(upperbound) + 1);
+        }
     }
 
     private void setValue(int newValue) {
