@@ -22,10 +22,11 @@ public class Main {
 
         // The new bit
         BufferedImage yetiPicture;
-        JLabel picLabel;
+        JLabel picLabel = null;
         try {
             yetiPicture = ImageIO.read(new File("./YetiIcon.png"));
-            picLabel = new JLabel(new ImageIcon(yetiPicture));
+            // picLabel = new JLabel(new ImageIcon(yetiPicture));
+             picLabel = new JLabel("hello world");
             picLabel.setBounds(50, 130, 100, 150);
             f.add(picLabel);                    // Add picture
         } catch(IOException e) {
@@ -40,6 +41,7 @@ public class Main {
                 f.setIconImage(null);
                 tf.setText("It's gone now. I guess we're safe");
                 b.setText("Just... not again.");
+                picLabel.setText("gone");
             }
         });
 
@@ -50,6 +52,7 @@ public class Main {
                 tf.setText("It's a 5 second yeti! RUN!");
                 b.setText(("Why did you do that!?!"));
                 f.setIconImage(yetiIcon.getImage());
+                picLabel.setIcon(yetiIcon);
                 yetiTimer.start();                          // Start the Yeti timer
             }
         });
