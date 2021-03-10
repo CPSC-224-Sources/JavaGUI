@@ -24,13 +24,15 @@ public class Demo2 {
         f.setSize(1024, 768);                   // Make the frame 1024x768
         f.setVisible(true);                                  // Make the frame visible
 
+        return;
+
         Container contentPane = f.getContentPane();
         contentPane.setLayout(new FlowLayout());
 
-        JPanel panel=new JPanel();                          // A panel is a sub-window box for widgets
-        panel.setBounds(40,80,200,200);     // Set the panel to be a 40,80 in upper left corner
-        panel.setBackground(Color.gray);                      // Make the panels' background gray
-        JButton b1=new JButton("Button 1");             // Create a button (button1) - does not *put* it anywhere
+        JPanel panel=new JPanel();
+        panel.setBounds(40,80,200,200);
+        panel.setBackground(Color.gray);
+        JButton b1=new JButton("Button 1");
         // b1.setBounds(50,100,80,30);
         b1.setBackground(Color.yellow);
         Border heldBorder = BorderFactory.createEtchedBorder(EtchedBorder.RAISED);

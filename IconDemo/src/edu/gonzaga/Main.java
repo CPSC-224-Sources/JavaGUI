@@ -6,10 +6,13 @@ import java.io.File;
 import java.io.IOException;
 import javax.swing.*;
 import javax.imageio.*;
+import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        System.out.println("Working Directory = " + System.getProperty("user.dir"));
         JFrame f=new JFrame("Button Example with Listener");
 
         final JTextField tf=new JTextField();
@@ -60,5 +63,64 @@ public class Main {
         f.setSize(400,400);
         f.setLayout(null);
         f.setVisible(true);
+    }
+}
+
+class GUIDie extends JLabel {
+    GUIDie() {
+        Die myDie = new Die();
+    }
+
+    void updateImage() {
+
+    }
+}
+
+class Hand {
+    ArrayList<Die> dice = new ArrayList<>();
+    JPanel myPanel;
+
+    Hand() {
+        //make_the_dice;
+        //gen_panel();
+    }
+
+    void gen_panel() {
+        myPanel = new JPanel();
+        //for ( die : dice ) {
+        //    myPanel.add(layoutHOOHA(die.get_label()));
+        // Add in checkboxes
+        // Add in roll button
+        //}
+    }
+
+    void get_panel() {
+        //return myPanel;
+    }
+
+}
+
+class Die {
+    JLabel myLabel;
+    int currVal = 1;
+    Die() {
+        myLabel = new JLabel();
+    }
+
+    void roll() {
+        currVal = rand();
+        updateImage();
+    }
+
+    BufferedImage get_image() {
+        return new BufferedImage("bassed on my currVal");
+    }
+
+    void updateImage() {
+        myLabel.setIcon(get_image());
+    }
+
+    JLabel get_label() {
+        return myLabel;
     }
 }
