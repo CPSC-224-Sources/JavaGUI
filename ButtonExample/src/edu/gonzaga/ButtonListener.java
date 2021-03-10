@@ -4,35 +4,20 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class ButtonListener {
-    ArrayList<JLabel> scoreRows = new ArrayList<>();
-
-    private void updateScorecard() {
-        // Get Hand's dice values
-        // Pass dice values to each score row calculator
-        // Take vales for each row calculated, write to score labels
-            // Skipping already used rows
-    }
-
-    JPanel gen_scorecard_panel() {
-        scoreRows.add(JLabel)
-    }
 
     public static void main(String[] args) {
-        JFrame f=new JFrame("Button Example with Listener");
+        JFrame f=new JFrame("Do NOT click this button");
 
         final JTextField tf=new JTextField();
         tf.setBounds(50,50, 150,20);
 
-        ButtonListener myself = this;
-
-        JButton b=new JButton("Click Here");
+        JButton b=new JButton("No click here");
         b.setBounds(50,100,200,30);
         b.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 // NOTE: e contains information about *what* action was performed
                 tf.setText("You Clicked it!");
                 b.setText(("Why did you do that!?!"));
-                myself.updateScorecard();
             }
         });
 

@@ -45,7 +45,7 @@ public class Demo2 {
         f.add(panel);
         f.add(b1);                                                              // Add button 1 to frame
         f.add(b2);                                                              // Add button 2 to frame
-        f.setSize(400,400);                                         // Make frame 400x400 pixels
+        //f.setSize(400,400);                                         // Make frame 400x400 pixels
         // f.setLayout(null);
         f.setVisible(true);
     }

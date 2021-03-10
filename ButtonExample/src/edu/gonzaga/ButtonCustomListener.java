@@ -39,7 +39,7 @@ public class ButtonCustomListener {
                 b.setText(("Why did you do that!?!"));
             }
         });
-        b.addActionListener(specialListener);
+        b.addActionListener(specialListener);       // See custom listener object above
 
         // Add components to the frame (window)
         f.add(b);
