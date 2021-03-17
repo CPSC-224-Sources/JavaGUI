@@ -5,9 +5,16 @@ import java.beans.PropertyChangeSupport;
 import java.beans.PropertyChangeListener;
 
 public class Die {
+    static int dieCount = 0;
+    int myID = 0;
     int value = 0;
     boolean locked = false;
     private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+
+    public Die() {
+        myID = dieCount;
+        dieCount++;
+    }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
           this.pcs.addPropertyChangeListener(listener);
