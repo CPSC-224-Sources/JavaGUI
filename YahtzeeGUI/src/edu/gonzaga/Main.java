@@ -2,6 +2,7 @@ package edu.gonzaga;
 
 import javax.swing.*;
 import java.awt.*;
+import edu.wsu.WSUDice;
 
 public class Main {
 
@@ -17,6 +18,8 @@ public class Main {
 
         DiceImages diceImages = new DiceImages("src/media/");
         */
+
+        WSUDice crimsonDie = new WSUDice();
 
         Yahtzee yahtzee = new Yahtzee();
     }
