@@ -25,12 +25,13 @@ public class Main {
 
         // The new bit
         BufferedImage yetiPicture;
-        JLabel picLabel;
+        JLabel picLabel = null;
         try {
             yetiPicture = ImageIO.read(new File("./YetiIcon.png"));
             picLabel = new JLabel(new ImageIcon(yetiPicture));
             picLabel.setBounds(50, 130, 100, 150);
             f.add(picLabel);                    // Add picture
+            picLabel.setVisible(false);
         } catch(IOException e) {
             e.printStackTrace();
         }
@@ -38,11 +39,13 @@ public class Main {
         //JLabel yetiLabel = new JLabel(yetiIcon);      // Make yeti chase you!
         // Need to hook to mouseEvent tracking. :-)
 
+        final JLabel finalPicLabel = picLabel;
         Timer yetiTimer = new Timer(5000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.setIconImage(null);
                 tf.setText("It's gone now. I guess we're safe");
                 b.setText("Just... not again.");
+                finalPicLabel.setVisible(false);
             }
         });
 
@@ -53,6 +56,7 @@ public class Main {
                 tf.setText("It's a 5 second yeti! RUN!");
                 b.setText(("Why did you do that!?!"));
                 f.setIconImage(yetiIcon.getImage());
+                finalPicLabel.setVisible(true);
                 yetiTimer.start();                          // Start the Yeti timer
             }
         });
@@ -108,19 +112,13 @@ class Die {
     }
 
     void roll() {
-        currVal = rand();
-        updateImage();
+        //currVal = rand();
+        //updateImage();
     }
 
-    BufferedImage get_image() {
-        return new BufferedImage("bassed on my currVal");
-    }
+   // BufferedImage get_image() { return new BufferedImage("bassed on my currVal"); }
 
-    void updateImage() {
-        myLabel.setIcon(get_image());
-    }
+    //void updateImage() { myLabel.setIcon(get_image()); }
 
-    JLabel get_label() {
-        return myLabel;
-    }
+   // JLabel get_label() { return myLabel; }
 }
