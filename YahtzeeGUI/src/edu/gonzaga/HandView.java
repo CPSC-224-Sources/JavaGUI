@@ -16,8 +16,16 @@ public class HandView {
 
     void setupPanel() {
         myPanel = new JPanel();
+
+        // Borders can change the style of widget edges
         Border blackline = BorderFactory.createLineBorder(Color.black);
+
+        // FlowLayout is the default left to right kind of layout
         myPanel.setLayout(new FlowLayout());
+
+        // Box layout can go vertically
+        //myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.PAGE_AXIS));
+
         myPanel.setSize(600, 100);
         myPanel.setBorder(blackline);
     }
