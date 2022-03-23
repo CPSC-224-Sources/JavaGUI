@@ -13,15 +13,16 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Working Directory = " + System.getProperty("user.dir"));
-        JFrame f=new JFrame("Button Example with Listener");
 
-        final JTextField tf=new JTextField();
-        tf.setBounds(50,50, 280,20);
+        JFrame mainWindowFrame = new JFrame("Button Example with Listener");
 
-        JButton b=new JButton("Click Here");
+        final JTextField userViewTextField = new JTextField();
+        userViewTextField.setBounds(50,50, 280,20);
+
+        JButton yetiInvokeButton = new JButton("Click Here");
 
         ImageIcon yetiIcon = new ImageIcon("./YetiIcon.png");
-        f.setIconImage(yetiIcon.getImage());
+        mainWindowFrame.setIconImage(yetiIcon.getImage());
 
         // The new bit
         BufferedImage yetiPicture;
@@ -30,7 +31,7 @@ public class Main {
             yetiPicture = ImageIO.read(new File("./YetiIcon.png"));
             picLabel = new JLabel(new ImageIcon(yetiPicture));
             picLabel.setBounds(50, 130, 100, 150);
-            f.add(picLabel);                    // Add picture
+            mainWindowFrame.add(picLabel);                    // Add picture for menu bar
             picLabel.setVisible(false);
         } catch(IOException e) {
             e.printStackTrace();
@@ -42,83 +43,30 @@ public class Main {
         final JLabel finalPicLabel = picLabel;
         Timer yetiTimer = new Timer(5000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                f.setIconImage(null);
-                tf.setText("It's gone now. I guess we're safe");
-                b.setText("Just... not again.");
+                mainWindowFrame.setIconImage(null);
+                userViewTextField.setText("It's gone now. I guess we're safe");
+                yetiInvokeButton.setText("Just... not again.");
                 finalPicLabel.setVisible(false);
             }
         });
 
-        b.setBounds(50,100,200,30);
-        b.addActionListener(new ActionListener(){
+        yetiInvokeButton.setBounds(50,100,200,30);
+        yetiInvokeButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 // NOTE: e contains information about *what* action was performed
-                tf.setText("It's a 5 second yeti! RUN!");
-                b.setText(("Why did you do that!?!"));
-                f.setIconImage(yetiIcon.getImage());
+                userViewTextField.setText("It's a 5 second yeti! RUN!");
+                yetiInvokeButton.setText(("Why did you do that!?!"));
+                mainWindowFrame.setIconImage(yetiIcon.getImage());
                 finalPicLabel.setVisible(true);
                 yetiTimer.start();                          // Start the Yeti timer
             }
         });
 
         // Add components to the frame (window)
-        f.add(b);
-        f.add(tf);
-        f.setSize(400,400);
-        f.setLayout(null);
-        f.setVisible(true);
+        mainWindowFrame.add(yetiInvokeButton);
+        mainWindowFrame.add(userViewTextField);
+        mainWindowFrame.setSize(400,400);
+        mainWindowFrame.setLayout(null);
+        mainWindowFrame.setVisible(true);
     }
-}
-
-class GUIDie extends JLabel {
-    GUIDie() {
-        Die myDie = new Die();
-    }
-
-    void updateImage() {
-
-    }
-}
-
-class Hand {
-    ArrayList<Die> dice = new ArrayList<>();
-    JPanel myPanel;
-
-    Hand() {
-        //make_the_dice;
-        //gen_panel();
-    }
-
-    void gen_panel() {
-        myPanel = new JPanel();
-        //for ( die : dice ) {
-        //    myPanel.add(layoutHOOHA(die.get_label()));
-        // Add in checkboxes
-        // Add in roll button
-        //}
-    }
-
-    void get_panel() {
-        //return myPanel;
-    }
-
-}
-
-class Die {
-    JLabel myLabel;
-    int currVal = 1;
-    Die() {
-        myLabel = new JLabel();
-    }
-
-    void roll() {
-        //currVal = rand();
-        //updateImage();
-    }
-
-   // BufferedImage get_image() { return new BufferedImage("bassed on my currVal"); }
-
-    //void updateImage() { myLabel.setIcon(get_image()); }
-
-   // JLabel get_label() { return myLabel; }
 }
