@@ -15,6 +15,7 @@ public class Main {
         System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
         JFrame mainWindowFrame = new JFrame("Button Example with Listener");
+        mainWindowFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         final JTextField userViewTextField = new JTextField();
         userViewTextField.setBounds(50,50, 280,20);
