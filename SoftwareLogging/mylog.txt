@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-03-28T16:50:12.076888Z</date>
+  <millis>1648486212076</millis>
+  <nanos>888000</nanos>
+  <sequence>0</sequence>
+  <logger>edu.gonzaga.HelloWorldDemo</logger>
+  <level>INFO</level>
+  <class>edu.gonzaga.Main</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>This is informational / status stuff</message>
+</record>
+<record>
+  <date>2022-03-28T16:50:12.108962Z</date>
+  <millis>1648486212108</millis>
+  <nanos>962000</nanos>
+  <sequence>1</sequence>
+  <logger>edu.gonzaga.HelloWorldDemo</logger>
+  <level>WARNING</level>
+  <class>edu.gonzaga.Main</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>This is for when a recoverable/ignorable error happened</message>
+</record>
+<record>
+  <date>2022-03-28T16:50:12.110010Z</date>
+  <millis>1648486212110</millis>
+  <nanos>10000</nanos>
+  <sequence>2</sequence>
+  <logger>edu.gonzaga.HelloWorldDemo</logger>
+  <level>FINE</level>
+  <class>edu.gonzaga.Main</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>done -- kinda like to know it ended.</message>
+</record>
+</log>
