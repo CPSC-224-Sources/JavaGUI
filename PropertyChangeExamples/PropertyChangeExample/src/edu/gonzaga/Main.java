@@ -15,6 +15,18 @@ public class Main {
 
         System.out.println("Rolling the die now - all watchers shall be informed");
         die.roll();
+        die.roll();
+        die.roll();
+        die.roll();
+        die.roll();
+        die.roll();
+        DieWatcher watcher3 = new DieWatcher(die);
+        die.roll();
+        die.roll();
+
+
+
+
         System.out.println("Die rolled a what? " + die.getValue());
 
 
