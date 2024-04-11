@@ -59,14 +59,20 @@ class TopScoresList implements PropertyChangeListener {
             // Sort the players by score in descending order
             Collections.sort(players, Comparator.comparing(Player::getScore).reversed());
 
-            System.out.println("Top Scores List:");
-            int rank = 1;
-            for (Player player : players) {
-                System.out.println("#" + rank + " - " + player.getName() + ": " + player.getScore());
-                rank++;
-            }
+            System.out.println(this.toString()); // Print the top scores list
         }
     }
+
+    @Override
+    public String toString() {
+        String ret = "Top Scores List: \n";
+        int rank = 1;
+        for (Player player : players) {
+            ret += "#" + rank + " - " + player.getName() + ": " + player.getScore() + "\n";
+            rank++;
+        }
+        return ret;
+    }   
 }
 
 public class Main {
@@ -81,6 +87,8 @@ public class Main {
         topScoresList.addPlayer(player2);
         topScoresList.addPlayer(player3);
         topScoresList.addPlayer(player4);
+
+        System.out.println(topScoresList);
 
         // Change some player scores
         player1.setScore(110);
