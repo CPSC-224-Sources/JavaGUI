@@ -72,14 +72,21 @@ class TopScoresList implements PropertyChangeListener {
     public void addPlayer(Player player) {
         players.add(player);
         player.addPropertyChangeListener(this);
+        sortPlayersByScore(); // Update the scores list
+    }
+
+    // Sort the players by score in descending order
+    private void sortPlayersByScore() {
+        Collections.sort(players, Comparator.comparing(Player::getScore).reversed());
+
+        // Note: you don't *have* to send old and new values in the event
+        propertyChangeSupport.firePropertyChange("TopScoreListUpdated", null, null);
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         if ("score".equals(evt.getPropertyName())) {
-            // Sort the players by score in descending order
-            Collections.sort(players, Comparator.comparing(Player::getScore).reversed());
-            propertyChangeSupport.firePropertyChange("TopScoreListUpdated", null, null);
+            sortPlayersByScore();
         }
     }
 
@@ -190,17 +197,24 @@ public class Main {
 
         System.out.println(topScoresList);
 
+        // Creates a view to display the top scores list with every change
         // TopScoreListTerminalView topScoreListTerminalView = new TopScoreListTerminalView(topScoresList);
 
+        // ** Adding TotalScoreView to display the total score of all players with every score change
+        /*
         System.out.println(" ** Adding TotalScoreView");
         TotalPlayersScoreView totalScoreView = new TotalPlayersScoreView();
         for (Player player : players) {
             totalScoreView.addPlayer(player);
         }
+         */
 
         // Change some player scores
         player1.setScore(110);
+        System.out.println(topScoresList);
+
         player4.setScore(130);
+        System.out.println(topScoresList);
 
 
         /* Uncomment this block to run the game
