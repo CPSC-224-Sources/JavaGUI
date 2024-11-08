@@ -60,6 +60,7 @@ class TopScoresList implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
+        System.out.println("Got property change event: " + evt.getPropertyName());
         if ("score".equals(evt.getPropertyName())) {
             // Sort the players by score in descending order
             Collections.sort(players, Comparator.comparing(Player::getScore).reversed());
@@ -100,9 +101,11 @@ public class Main {
         JFrame frame = new JFrame("Top Scores");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(300, 200));
+        frame.setLocation(200,200);
 
         JTextArea textArea = new JTextArea();
         textArea.setEditable(false);
+        textArea.setText("Need scores.");
 
         JButton updateButton = new JButton("Update Scores");
         updateButton.addActionListener(e -> {
